@@ -14,4 +14,34 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>RetriveServlet</display-name>
+    <servlet-name>RetriveServlet</servlet-name>
+    <servlet-class>pramod.shethe.com.RetriveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetriveServlet</servlet-name>
+    <url-pattern>/RetriveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteRow</display-name>
+    <servlet-name>DeleteRow</servlet-name>
+    <servlet-class>pramod.shethe.com.DeleteRow</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteRow</servlet-name>
+    <url-pattern>/DeleteRow</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpadatingRow</display-name>
+    <servlet-name>UpadatingRow</servlet-name>
+    <servlet-class>pramod.shethe.com.UpadatingRow</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpadatingRow</servlet-name>
+    <url-pattern>/UpadatingRow</url-pattern>
+  </servlet-mapping>
 </web-app>

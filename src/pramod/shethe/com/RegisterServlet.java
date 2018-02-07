@@ -44,20 +44,23 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("userPass");
 		String email = request.getParameter("userEmail");
 		String country = request.getParameter("userCountry");
+		String z = request.getParameter("id");
+		int id = Integer.valueOf(z);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");		
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1","root","");
-			PreparedStatement stat = con.prepareStatement("INSERT INTO student VALUES(?,?,?,?)");
-			stat.setString(1,userName);
-			stat.setString(2, password);
-			stat.setString(3, email);
-			stat.setString(4, country);
+			PreparedStatement stat = con.prepareStatement("INSERT INTO student VALUES(?,?,?,?,?)");
+			stat.setInt(1, id);
+			stat.setString(2,userName);
+			stat.setString(3, password);
+			stat.setString(4, email);
+			stat.setString(5, country);
 			
 			int i = stat.executeUpdate();
 			if(i>0){
-				System.out.println("Successfully Registered");
+				
 				out.print("User is successfully created!!!");
 			}
 			con.close();

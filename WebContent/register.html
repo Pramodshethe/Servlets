@@ -6,7 +6,7 @@
 </head>
 <body>  
 <form action="RegisterServlet" method="post">  
-  
+id:<input type="text" name="id"><br/><br/>
 Name:<input type="text" name="userName"/><br/><br/>  
 Password:<input type="password" name="userPass"/><br/><br/>  
 Email Id:<input type="text" name="userEmail"/><br/><br/>  
@@ -16,10 +16,28 @@ Country:
 <option>Pakistan</option>  
 <option>other</option>  
 </select>  
-  
 <br/><br/>  
-<input type="submit" value="register"/>  
-  
-</form>  
+<input type="submit" value="register"/><br/><br/>    
+</form>
+
+ <h1>DISPLAY </h1>
+<form action="RetriverServlet" method="get">
+Enter your ID:<input type="text" name="id"><br/><br/>
+<input type="submit" value="search"><br/><br/>
+</form>
+
+<h1>DELETING ROW </h1>
+<form action="DeleteRow" method="post">
+Enter name:<input type="text" name="delname"><br/><br/>
+<input type="submit" value="delete"><br/><br/>
+</form>
+
+<h1>UPDATING </h1>
+<form action="UpadatingRow" method="post">
+Enter name:<input type="text" name="update"><br/><br/>
+Enter ID:<input type="text" name="id2"><br/><br/>
+<input type="submit" value="Update"><br/><br/>
+</form>
+
 </body>  
 </html>
