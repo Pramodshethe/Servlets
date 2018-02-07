@@ -18,7 +18,7 @@ public class RetriveServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	public void doget(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	 
 	 response.setContentType("text/html");
 	 PrintWriter out = response.getWriter();
@@ -29,19 +29,17 @@ public class RetriveServlet extends HttpServlet {
 	 try {
 		 Class.forName("com.mysql.jdbc.Driver");
 		 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1","root","");
-		 PreparedStatement stat = con.prepareStatement("SELECT * FROM student WHERE id=?");
-		stat.setInt(1, id);
-		
+		 PreparedStatement stat = con.prepareStatement("SELECT * FROM student WHERE id ='"+id+"'");
+//		stat.setInt(1, id);
+		ResultSet rs = stat.executeQuery();
 		out.print("<table width=50% border=1>");  
 		out.print("<caption>Result:</caption>");  
-		  
-		ResultSet rs = stat.executeQuery();
-		
+		 
 		ResultSetMetaData rm = rs.getMetaData();
 		int total = rm.getColumnCount();
 		out.print("<tr>");
-		for (int i=0;i<total;i++){
-			out.print("<th>"+rm.getColumnName(i)+"<th>");
+		for (int i=1;i<total;i++){
+			out.print("<th>"+rm.getColumnName(i)+"</th>");
 		}
 		out.print("</tr>");
 		
